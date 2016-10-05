@@ -15,6 +15,12 @@ class GETabbarViewController: UITabBarController {
 
         addingCustomTabBar ()
         addingBottomBar ()
+        
+        GETransportManager.sharedManager.getBusTransportModeDetails { (success) -> Void in
+            if success {
+                
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {

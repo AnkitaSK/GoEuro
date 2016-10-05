@@ -19,6 +19,9 @@
 		F6F443281DA4FE4200E4183C /* GETabbarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6F443271DA4FE4200E4183C /* GETabbarView.xib */; };
 		F6F4432A1DA509E800E4183C /* GEBottomBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6F443291DA509E800E4183C /* GEBottomBarView.xib */; };
 		F6F4432C1DA50A0400E4183C /* GEBottomBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F4432B1DA50A0400E4183C /* GEBottomBarView.swift */; };
+		F6F443301DA527BE00E4183C /* GoEuroApi.m in Sources */ = {isa = PBXBuildFile; fileRef = F6F4432F1DA527BE00E4183C /* GoEuroApi.m */; };
+		F6F443351DA57A0600E4183C /* GETransportDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F443341DA57A0600E4183C /* GETransportDetailModel.swift */; };
+		F6F443371DA57DD000E4183C /* GETransportManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F443361DA57DD000E4183C /* GETransportManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +42,11 @@
 		F6F443271DA4FE4200E4183C /* GETabbarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GETabbarView.xib; path = TravelFeeds/GETabbarView.xib; sourceTree = "<group>"; };
 		F6F443291DA509E800E4183C /* GEBottomBarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GEBottomBarView.xib; path = TravelFeeds/GEBottomBarView.xib; sourceTree = "<group>"; };
 		F6F4432B1DA50A0400E4183C /* GEBottomBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GEBottomBarView.swift; path = TravelFeeds/GEBottomBarView.swift; sourceTree = "<group>"; };
+		F6F4432E1DA527BE00E4183C /* GoEuroApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GoEuroApi.h; path = Shared/Server/GoEuroApi.h; sourceTree = "<group>"; };
+		F6F4432F1DA527BE00E4183C /* GoEuroApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GoEuroApi.m; path = Shared/Server/GoEuroApi.m; sourceTree = "<group>"; };
+		F6F443321DA5285600E4183C /* Constant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constant.h; sourceTree = "<group>"; };
+		F6F443341DA57A0600E4183C /* GETransportDetailModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GETransportDetailModel.swift; path = Shared/Model/GETransportDetailModel.swift; sourceTree = "<group>"; };
+		F6F443361DA57DD000E4183C /* GETransportManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GETransportManager.swift; path = Shared/Model/GETransportManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				F6091BE71DA4E3F1003CE759 /* AppDelegate.h */,
+				F6F4432D1DA5277500E4183C /* Shared */,
 				F6F443221DA4FCB400E4183C /* TravelFeeds */,
 				F6091BE81DA4E3F1003CE759 /* AppDelegate.m */,
 				F6091BEA1DA4E3F1003CE759 /* ViewController.h */,
@@ -83,6 +92,7 @@
 				F6091BF01DA4E3F1003CE759 /* GoEuro.xcdatamodeld */,
 				F6091BE41DA4E3F1003CE759 /* Supporting Files */,
 				F6091BFE1DA4F4D7003CE759 /* GoEuro-Bridging-Header.h */,
+				F6F443321DA5285600E4183C /* Constant.h */,
 			);
 			path = GoEuro;
 			sourceTree = "<group>";
@@ -105,6 +115,33 @@
 				F6F443291DA509E800E4183C /* GEBottomBarView.xib */,
 			);
 			name = TravelFeeds;
+			sourceTree = "<group>";
+		};
+		F6F4432D1DA5277500E4183C /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				F6F443331DA5798A00E4183C /* Model */,
+				F6F443311DA527C400E4183C /* Server */,
+			);
+			name = Shared;
+			sourceTree = "<group>";
+		};
+		F6F443311DA527C400E4183C /* Server */ = {
+			isa = PBXGroup;
+			children = (
+				F6F4432E1DA527BE00E4183C /* GoEuroApi.h */,
+				F6F4432F1DA527BE00E4183C /* GoEuroApi.m */,
+			);
+			name = Server;
+			sourceTree = "<group>";
+		};
+		F6F443331DA5798A00E4183C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F6F443341DA57A0600E4183C /* GETransportDetailModel.swift */,
+				F6F443361DA57DD000E4183C /* GETransportManager.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -181,11 +218,14 @@
 			files = (
 				F6091BF21DA4E3F1003CE759 /* GoEuro.xcdatamodeld in Sources */,
 				F6F443261DA4FE2D00E4183C /* GETabbarView.swift in Sources */,
+				F6F443371DA57DD000E4183C /* GETransportManager.swift in Sources */,
+				F6F443301DA527BE00E4183C /* GoEuroApi.m in Sources */,
 				F6091BEC1DA4E3F1003CE759 /* ViewController.m in Sources */,
 				F6091BE91DA4E3F1003CE759 /* AppDelegate.m in Sources */,
 				F6091BE61DA4E3F1003CE759 /* main.m in Sources */,
 				F6F4432C1DA50A0400E4183C /* GEBottomBarView.swift in Sources */,
 				F6F443241DA4FDE100E4183C /* GETabbarViewController.swift in Sources */,
+				F6F443351DA57A0600E4183C /* GETransportDetailModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
