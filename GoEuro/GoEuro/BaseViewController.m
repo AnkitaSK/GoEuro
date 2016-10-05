@@ -8,6 +8,7 @@
 
 #import "BaseViewController.h"
 #import <GoEuro-Swift.h>
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @interface BaseViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *listTableView;
@@ -58,6 +59,17 @@
     }
     
 //    customCell.timeIntervalLabel.text = [self timeDifference:transportModel.arrivalTime departureTime:transportModel.departureTime];
+    
+    NSString *imageUrlString = transportModel.providerLogo;
+    
+    if ([imageUrlString containsString:@"{size}"]) {
+        imageUrlString = [imageUrlString stringByReplacingOccurrencesOfString:@"{size}" withString:@"63"];
+        imageUrlString = [imageUrlString stringByReplacingOccurrencesOfString:@"http" withString:@"https"];
+    }
+    
+    [customCell.logoImageView sd_setImageWithURL:[NSURL URLWithString:imageUrlString] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        
+    }];
     
     return customCell;
     
