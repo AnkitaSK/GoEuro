@@ -8,7 +8,15 @@
 
 import UIKit
 
+enum ButtonTap {
+    case TrainButtonTap
+    case BusButtonTap
+    case FlightButtonTap
+}
+
 class GETabbarView: UIView {
+    
+    var buttonClickCompletion : ((tap : ButtonTap)->Void)?
     
     class func instanceFromNib() -> GETabbarView {
         return UINib(nibName: "GETabbarView", bundle: nil).instantiateWithOwner(nil, options: nil)[0] as! GETabbarView
@@ -16,15 +24,17 @@ class GETabbarView: UIView {
     
     
     @IBAction func trainButtonClicked(sender: UIButton) {
+        buttonClickCompletion!(tap: .TrainButtonTap)
+        
         
     }
     
     @IBAction func busButtonClicked(sender: UIButton) {
-        
+        buttonClickCompletion!(tap: .BusButtonTap)
     }
     
     @IBAction func flightButtonClicked(sender: UIButton) {
-        
+        buttonClickCompletion!(tap: .FlightButtonTap)
     }
 
     /*

@@ -9,12 +9,12 @@
 import UIKit
 
 class GETransportDetailModel: NSObject {
-    var id:NSInteger?
+    var id:NSInteger = 0
     var providerLogo: String?
-    var priceInEuros: NSInteger?
+    var priceInEuros: NSInteger = 0
     var departureTime: String?
     var arrivalTime: String?
-    var numberOfStops: NSInteger?
+    var numberOfStops: NSInteger = 0
     
     init(attributes:[String : AnyObject]) {
         id = attributes["id"] as? NSInteger ?? 0
