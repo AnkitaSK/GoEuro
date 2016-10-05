@@ -13,4 +13,6 @@ typedef void(^GoEuroApiCallCompletion) (id response,NSInteger HTTPStatusCode,NSE
 
 + (instancetype)sharedAPI;
 - (void)getBusDataWithCompletion:(GoEuroApiCallCompletion)completion;
+- (void)getTrainDataWithCompletion:(GoEuroApiCallCompletion)completion;
+- (void)getFlightDataWithCompletion:(GoEuroApiCallCompletion)completion;
 @end

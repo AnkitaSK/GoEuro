@@ -28,4 +28,36 @@ class GEModeManager: NSObject {
             }
         }
     }
+    
+    func getTrainTransportModeDetails(completiom:(success:Bool)->Void) ->Void {
+        GoEuroApi.sharedAPI().getTrainDataWithCompletion { [weak self](response, statusCode, error) -> Void in
+            if let weakSelf = self {
+                if error == nil && statusCode == 200 {
+                    if let responseArray = response as? [[String : AnyObject]] {
+                        
+                        for object in responseArray {
+                            let modeDetailModel = GEModeDetailModel(attributes: object)
+                            weakSelf.modeDetails.append(modeDetailModel)
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    func getFlightTransportModeDetails(completiom:(success:Bool)->Void) ->Void {
+        GoEuroApi.sharedAPI().getFlightDataWithCompletion { [weak self](response, statusCode, error) -> Void in
+            if let weakSelf = self {
+                if error == nil && statusCode == 200 {
+                    if let responseArray = response as? [[String : AnyObject]] {
+                        
+                        for object in responseArray {
+                            let modeDetailModel = GEModeDetailModel(attributes: object)
+                            weakSelf.modeDetails.append(modeDetailModel)
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

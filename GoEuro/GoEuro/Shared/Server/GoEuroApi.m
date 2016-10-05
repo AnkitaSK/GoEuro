@@ -35,6 +35,14 @@
     [self sendHTTPRequestWithpath:@"37yzm" completion:completion];
 }
 
+- (void)getTrainDataWithCompletion:(GoEuroApiCallCompletion)completion {
+    [self sendHTTPRequestWithpath:@"3zmcy" completion:completion];
+}
+
+- (void)getFlightDataWithCompletion:(GoEuroApiCallCompletion)completion {
+    [self sendHTTPRequestWithpath:@"w60i" completion:completion];
+}
+
 #pragma mark - Helper Methods.
 
 - (void)sendHTTPRequestWithpath:(NSString*)path
