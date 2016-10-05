@@ -1,0 +1,8 @@
+
+def shared_pods
+ pod 'SDWebImage'
+end
+
+target ‘GoEuro’ do
+ shared_pods
+end

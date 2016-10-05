@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6518AF357E79F479B2C0097D /* libPods-GoEuro.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 148A5ADA145FCF65DE936FC9 /* libPods-GoEuro.a */; };
 		F6091BE61DA4E3F1003CE759 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F6091BE51DA4E3F1003CE759 /* main.m */; };
 		F6091BE91DA4E3F1003CE759 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F6091BE81DA4E3F1003CE759 /* AppDelegate.m */; };
 		F6091BEF1DA4E3F1003CE759 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6091BED1DA4E3F1003CE759 /* Main.storyboard */; };
@@ -26,6 +27,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		148A5ADA145FCF65DE936FC9 /* libPods-GoEuro.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GoEuro.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		240116B1642E629A1D409CDC /* Pods-GoEuro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoEuro.release.xcconfig"; path = "Pods/Target Support Files/Pods-GoEuro/Pods-GoEuro.release.xcconfig"; sourceTree = "<group>"; };
+		7F15FB0D76756AB790449810 /* Pods-GoEuro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoEuro.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GoEuro/Pods-GoEuro.debug.xcconfig"; sourceTree = "<group>"; };
 		F6091BE11DA4E3F1003CE759 /* GoEuro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoEuro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6091BE51DA4E3F1003CE759 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F6091BE71DA4E3F1003CE759 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -56,17 +60,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6518AF357E79F479B2C0097D /* libPods-GoEuro.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1356D440F5A0BF63BA739FAB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7F15FB0D76756AB790449810 /* Pods-GoEuro.debug.xcconfig */,
+				240116B1642E629A1D409CDC /* Pods-GoEuro.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E2C7A1FB9A32AE07B2B052CF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				148A5ADA145FCF65DE936FC9 /* libPods-GoEuro.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F6091BD81DA4E3F1003CE759 = {
 			isa = PBXGroup;
 			children = (
 				F6091BE31DA4E3F1003CE759 /* GoEuro */,
 				F6091BE21DA4E3F1003CE759 /* Products */,
+				1356D440F5A0BF63BA739FAB /* Pods */,
+				E2C7A1FB9A32AE07B2B052CF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -154,9 +178,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F6091BFB1DA4E3F1003CE759 /* Build configuration list for PBXNativeTarget "GoEuro" */;
 			buildPhases = (
+				B03E8516CE0C0FD9289D33EE /* [CP] Check Pods Manifest.lock */,
 				F6091BDD1DA4E3F1003CE759 /* Sources */,
 				F6091BDE1DA4E3F1003CE759 /* Frameworks */,
 				F6091BDF1DA4E3F1003CE759 /* Resources */,
+				3AFCCCBA9568B2E99130158A /* [CP] Embed Pods Frameworks */,
+				C009CEEB6131BC189FE5C603 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -213,6 +240,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3AFCCCBA9568B2E99130158A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GoEuro/Pods-GoEuro-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B03E8516CE0C0FD9289D33EE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C009CEEB6131BC189FE5C603 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GoEuro/Pods-GoEuro-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F6091BDD1DA4E3F1003CE759 /* Sources */ = {
@@ -337,6 +412,7 @@
 		};
 		F6091BFC1DA4E3F1003CE759 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7F15FB0D76756AB790449810 /* Pods-GoEuro.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -351,6 +427,7 @@
 		};
 		F6091BFD1DA4E3F1003CE759 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 240116B1642E629A1D409CDC /* Pods-GoEuro.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
