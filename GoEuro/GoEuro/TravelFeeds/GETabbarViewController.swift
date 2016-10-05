@@ -16,7 +16,7 @@ class GETabbarViewController: UITabBarController {
         addingCustomTabBar ()
         addingBottomBar ()
         
-        GEModeManager.sharedManager.getBusTransportModeDetails { (success) -> Void in
+        GETransportManager.sharedManager.getBusTransportModeDetails { (success) -> Void in
             if success {
                 
             }

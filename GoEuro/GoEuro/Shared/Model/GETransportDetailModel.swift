@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GEModeDetailModel: NSObject {
+class GETransportDetailModel: NSObject {
     var id:NSInteger?
     var providerLogo: String?
     var priceInEuros: NSInteger?

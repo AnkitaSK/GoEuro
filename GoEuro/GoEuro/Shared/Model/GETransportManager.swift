@@ -8,10 +8,12 @@
 
 import UIKit
 
-class GEModeManager: NSObject {
-    static let sharedManager = GEModeManager()
+class GETransportManager: NSObject {
+    static let sharedManager = GETransportManager()
     
-    var modeDetails = [GEModeDetailModel]()
+    var busTransportDetails = [GETransportDetailModel]()
+    var trainTransportDetails = [GETransportDetailModel]()
+    var flightTransportDetails = [GETransportDetailModel]()
     
     func getBusTransportModeDetails(completiom:(success:Bool)->Void) ->Void {
         GoEuroApi.sharedAPI().getBusDataWithCompletion { [weak self](response, statusCode, error) -> Void in
@@ -20,8 +22,8 @@ class GEModeManager: NSObject {
                     if let responseArray = response as? [[String : AnyObject]] {
                         
                         for object in responseArray {
-                            let modeDetailModel = GEModeDetailModel(attributes: object)
-                            weakSelf.modeDetails.append(modeDetailModel)
+                            let modeDetailModel = GETransportDetailModel(attributes: object)
+                            weakSelf.busTransportDetails.append(modeDetailModel)
                         }
                     }
                 }
@@ -36,8 +38,8 @@ class GEModeManager: NSObject {
                     if let responseArray = response as? [[String : AnyObject]] {
                         
                         for object in responseArray {
-                            let modeDetailModel = GEModeDetailModel(attributes: object)
-                            weakSelf.modeDetails.append(modeDetailModel)
+                            let modeDetailModel = GETransportDetailModel(attributes: object)
+                            weakSelf.trainTransportDetails.append(modeDetailModel)
                         }
                     }
                 }
@@ -52,8 +54,8 @@ class GEModeManager: NSObject {
                     if let responseArray = response as? [[String : AnyObject]] {
                         
                         for object in responseArray {
-                            let modeDetailModel = GEModeDetailModel(attributes: object)
-                            weakSelf.modeDetails.append(modeDetailModel)
+                            let modeDetailModel = GETransportDetailModel(attributes: object)
+                            weakSelf.flightTransportDetails.append(modeDetailModel)
                         }
                     }
                 }
