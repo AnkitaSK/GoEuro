@@ -9,22 +9,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "GoEuro/TravelFeeds/GETabbarViewController.swift"
-            timestampString = "497387981.63941"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "20"
-            endingLineNumber = "20"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "GoEuro/AppDelegate.m"
             timestampString = "497354648.59501"
             startingColumnNumber = "9223372036854775807"
@@ -79,8 +63,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "46"
             endingLineNumber = "46"
-            landmarkName = "-sendHTTPRequestWithpath:completion:"
-            landmarkType = "5">
+            landmarkName = "@implementation GoEuroApi"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -115,46 +99,46 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "GoEuro/TravelFeeds/GETabbarViewController.swift"
-            timestampString = "497387981.63941"
+            filePath = "GoEuro/TravelFeeds/GETabbarView.swift"
+            timestampString = "497395628.499761"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "23"
-            endingLineNumber = "23"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "trainButtonClicked(_:)"
             landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "GoEuro.GETabbarViewController.viewDidLoad (GoEuro.GETabbarViewController)() -&gt; ()"
-                  moduleName = "GoEuro"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ankitakalangutkar/Documents/Ankita/FromGitHub/GoEuro/GoEuro/GoEuro/TravelFeeds/GETabbarViewController.swift"
-                  timestampString = "497387982.66244"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "23"
-                  endingLineNumber = "23"
-                  offsetFromSymbolStart = "169">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "GoEuro.GETabbarViewController.(viewDidLoad (GoEuro.GETabbarViewController) -&gt; () -&gt; ()).(closure #1)"
-                  moduleName = "GoEuro"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ankitakalangutkar/Documents/Ankita/FromGitHub/GoEuro/GoEuro/GoEuro/TravelFeeds/GETabbarViewController.swift"
-                  timestampString = "497387982.662617"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "23"
-                  endingLineNumber = "23"
-                  offsetFromSymbolStart = "23">
-               </Location>
-            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GoEuro/TravelFeeds/GETabbarView.swift"
+            timestampString = "497395628.499761"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "busButtonClicked(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GoEuro/TravelFeeds/GETabbarView.swift"
+            timestampString = "497395628.499761"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "flightButtonClicked(_:)"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -164,12 +148,44 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GoEuro/TravelFeeds/GETabbarViewController.swift"
-            timestampString = "497387975.953668"
+            timestampString = "497395899.958013"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "20"
-            endingLineNumber = "20"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
+            landmarkName = "addingTopBar()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GoEuro/TravelFeeds/GETabbarViewController.swift"
+            timestampString = "497395899.958013"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
+            landmarkName = "addingTopBar()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GoEuro/TravelFeeds/GETabbarViewController.swift"
+            timestampString = "497395899.958013"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
+            landmarkName = "addingTopBar()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

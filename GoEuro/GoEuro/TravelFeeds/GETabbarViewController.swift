@@ -13,10 +13,22 @@ class GETabbarViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        addingCustomTabBar ()
+        addingTopBar ()
         addingBottomBar ()
         
         GETransportManager.sharedManager.getBusTransportModeDetails { (success) -> Void in
+            if success {
+                
+            }
+        }
+        
+        GETransportManager.sharedManager.getTrainTransportModeDetails { (success) -> Void in
+            if success {
+                
+            }
+        }
+        
+        GETransportManager.sharedManager.getFlightTransportModeDetails { (success) -> Void in
             if success {
                 
             }
@@ -35,12 +47,32 @@ class GETabbarViewController: UITabBarController {
         view.addSubview(bottomBar)
     }
     
-    func addingCustomTabBar () {
+    func addingTopBar () {
         var topTabBar:GETabbarView = GETabbarView ()
         topTabBar = GETabbarView.instanceFromNib()
         topTabBar.frame = CGRectMake(0, 64, view.bounds.size.width , 79)
         view.addSubview(topTabBar)
         
+        topTabBar.buttonClickCompletion = {[weak self] ButtonTap in
+            if let weakSelf = self {
+                switch ButtonTap {
+                case .BusButtonTap:
+                    let parameters = ["transportDetails": GETransportManager.sharedManager.busTransportDetails]
+                    NSNotificationCenter.defaultCenter().postNotificationName("ReloadListView", object:parameters)
+                    break
+                    
+                case .TrainButtonTap:
+                    let parameters = ["transportDetails": GETransportManager.sharedManager.trainTransportDetails]
+                    NSNotificationCenter.defaultCenter().postNotificationName("ReloadListView", object:parameters)
+                    break
+                    
+                case .FlightButtonTap:
+                    let parameters = ["transportDetails": GETransportManager.sharedManager.flightTransportDetails]
+                    NSNotificationCenter.defaultCenter().postNotificationName("ReloadListView", object:parameters)
+                    break
+                }
+            }
+        }
     }
 
     /*
