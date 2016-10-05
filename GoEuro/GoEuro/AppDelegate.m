@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-@class GETabbarViewController;
+#import <GoEuro-Swift.h>
 
 @interface AppDelegate ()
 @property (nonatomic, strong) GETabbarViewController *customTabBarController;
