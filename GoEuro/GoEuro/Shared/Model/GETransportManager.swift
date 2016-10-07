@@ -15,7 +15,7 @@ class GETransportManager: NSObject {
     var trainTransportDetails = [GETransportDetailModel]()
     var flightTransportDetails = [GETransportDetailModel]()
     
-    func getBusTransportModeDetails(completiom:(success:Bool)->Void) ->Void {
+    func getBusTransportModeDetails(completiom:(success:Bool)->Void) {
         GoEuroApi.sharedAPI().getBusDataWithCompletion { [weak self](response, statusCode, error) -> Void in
             if let weakSelf = self {
                 if error == nil && statusCode == 200 {
@@ -26,6 +26,8 @@ class GETransportManager: NSObject {
                             weakSelf.busTransportDetails.append(modeDetailModel)
                         }
                     }
+                    
+                    completiom(success: true)
                 }
             }
         }
@@ -48,6 +50,7 @@ class GETransportManager: NSObject {
     }
     
     func getFlightTransportModeDetails(completiom:(success:Bool)->Void) ->Void {
+        
         GoEuroApi.sharedAPI().getFlightDataWithCompletion { [weak self](response, statusCode, error) -> Void in
             if let weakSelf = self {
                 if error == nil && statusCode == 200 {
