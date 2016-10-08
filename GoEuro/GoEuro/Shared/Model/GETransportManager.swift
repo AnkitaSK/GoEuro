@@ -24,6 +24,8 @@ class GETransportManager: NSObject {
                         for object in responseArray {
                             let modeDetailModel = GETransportDetailModel(attributes: object)
                             weakSelf.busTransportDetails.append(modeDetailModel)
+                            
+                            GECacheManager.sharedManager.save(modeDetailModel, key: "BusData")
                         }
                     }
                     

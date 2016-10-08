@@ -16,11 +16,20 @@ class GETabbarViewController: UITabBarController {
         addingTopBar ()
         addingBottomBar ()
         
-        GETransportManager.sharedManager.getBusTransportModeDetails { (success) -> Void in
-            if success {
-                
+        if let transportDetailModelArray =  GECacheManager.sharedManager.object(forKey: "BusData") as? [GETransportDetailModel] {
+            GETransportManager.sharedManager.busTransportDetails = transportDetailModelArray
+            let parameters = ["transportDetails": transportDetailModelArray]
+            NSNotificationCenter.defaultCenter().postNotificationName("ReloadListView", object:parameters)
+        }
+        else {
+            GETransportManager.sharedManager.getBusTransportModeDetails { (success) -> Void in
+                if success {
+                    
+                }
             }
         }
+        
+        
         
         GETransportManager.sharedManager.getTrainTransportModeDetails { (success) -> Void in
             if success {
