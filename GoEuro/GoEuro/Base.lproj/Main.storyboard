@@ -54,7 +54,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZoH-p7-Cbh">
-                                                    <rect key="frame" x="325.5" y="68" width="37.5" height="18"/>
+                                                    <rect key="frame" x="325" y="68" width="37.5" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -96,18 +96,25 @@
                                     <outlet property="delegate" destination="2SZ-T5-s96" id="gM7-yz-JIn"/>
                                 </connections>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="oLs-yJ-peI">
+                                <rect key="frame" x="177.5" y="292" width="20" height="20"/>
+                                <color key="color" red="0.61960784310000006" green="0.74901960779999999" blue="0.83137254900000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="YVi-31-jTt" firstAttribute="leading" secondItem="aNj-fT-4fB" secondAttribute="leading" id="2Be-Wp-oEf"/>
                             <constraint firstItem="YVi-31-jTt" firstAttribute="top" secondItem="f4H-AD-aci" secondAttribute="bottom" constant="64" id="8Mj-Q3-rYP"/>
                             <constraint firstItem="wWZ-NE-X8h" firstAttribute="top" secondItem="YVi-31-jTt" secondAttribute="bottom" constant="-64" id="IfT-As-NyV"/>
+                            <constraint firstItem="oLs-yJ-peI" firstAttribute="centerY" secondItem="aNj-fT-4fB" secondAttribute="centerY" id="iM2-VG-z6l"/>
+                            <constraint firstItem="oLs-yJ-peI" firstAttribute="centerX" secondItem="aNj-fT-4fB" secondAttribute="centerX" id="jMf-OB-kX3"/>
                             <constraint firstAttribute="trailing" secondItem="YVi-31-jTt" secondAttribute="trailing" id="vQR-PS-Wc2"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="cyq-pH-KpA"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="oLs-yJ-peI" id="9d3-hz-JJP"/>
                         <outlet property="listTableView" destination="YVi-31-jTt" id="4Xg-f3-Uda"/>
                     </connections>
                 </viewController>
