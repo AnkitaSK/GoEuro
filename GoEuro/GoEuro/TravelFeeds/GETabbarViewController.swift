@@ -116,9 +116,21 @@ class GETabbarViewController: UITabBarController {
         var bottomBar:GEBottomBarView = GEBottomBarView ()
         bottomBar = GEBottomBarView.instanceFromNib()
         bottomBar.frame = CGRectMake(0, view.bounds.size.height - 48, view.bounds.size.width, 48)
-        bottomBar.sortButtonClickCompletion = {[weak self] BottomBarButtonTap in
+        bottomBar.sortButtonClickCompletion = {[weak self] BottomBarButtons in
             if let weakSelf = self {
-                weakSelf.addingSortView()
+                switch (BottomBarButtons) {
+                case .SortButton:
+                    weakSelf.addingSortView()
+                    break
+                case .OfferButton:
+                    let alertController = UIAlertController(title: "Alert", message: "Offer details are not yet implemented!", preferredStyle: .Alert)
+                    let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+                    alertController.addAction(defaultAction)
+                    weakSelf.presentViewController(alertController, animated: true, completion: nil)
+                    
+                    break
+                }
+                
             }
         }
         view.addSubview(bottomBar)
