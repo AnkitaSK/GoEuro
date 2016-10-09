@@ -57,7 +57,7 @@
 }
 
 - (NSInteger)timeDifference:(NSInteger)arrivalTime departureTime:(NSInteger)departureTime {
-    NSDate* date1 = [NSDate dateWithTimeIntervalSinceNow:arrivalTime];
+    NSDate* date1 = [NSDate dateWithTimeIntervalSince1970:arrivalTime];
     NSDate* date2 = [NSDate dateWithTimeIntervalSince1970:departureTime];
     NSTimeInterval distanceBetweenDates = [date1 timeIntervalSinceDate:date2];
     double secondsInAnHour = 3600;
@@ -141,8 +141,9 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     GETransportModeCell *customCell = (GETransportModeCell*)[tableView dequeueReusableCellWithIdentifier:@"TransportModeCell" forIndexPath:indexPath];
     GETransportDetailModel *transportModel = [self.transportDetailModelArray objectAtIndex:indexPath.row];
-    customCell.timeLabel.text = [NSString stringWithFormat:@"%@ - %@",transportModel.arrivalTime,transportModel.departureTime];
+    customCell.timeLabel.text = [NSString stringWithFormat:@"%@ - %@",transportModel.departureTime,transportModel.arrivalTime];
     customCell.priceLabel.text = [NSString stringWithFormat:@"%ld",(long)transportModel.priceInEuros];
+    customCell.timeIntervalLabel.text = [NSString stringWithFormat:@"%@h",transportModel.duration];
     if (transportModel.numberOfStops > 0) {
         customCell.numberOfStopsLabel.text = [NSString stringWithFormat:@"%ld Change",(long)transportModel.numberOfStops];
     }
