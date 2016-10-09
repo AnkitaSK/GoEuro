@@ -8,13 +8,22 @@
 
 import UIKit
 
+enum BottomBarButtonTap {
+    case SortButton
+}
+
 class GEBottomBarView: UIView {
+    
+    var sortButtonClickCompletion:((tap:BottomBarButtonTap)->Void)?
 
     class func instanceFromNib() -> GEBottomBarView {
         return UINib(nibName: "GEBottomBarView", bundle: nil).instantiateWithOwner(nil, options: nil)[0] as! GEBottomBarView
     }
     
-    @IBOutlet var sortButtonClicked: UIButton!
+    @IBAction func sortButtonClicked(sender: UIButton) {
+        sortButtonClickCompletion!(tap: .SortButton)
+    }
+    
     
     /*
     // Only override drawRect: if you perform custom drawing.
