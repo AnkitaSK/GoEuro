@@ -24,26 +24,6 @@ class GETabbarViewController: UITabBarController {
 
         addingTopBar ()
         addingBottomBar ()
-        
-        
-        
-//        3275
-//        let testArray = twoSum([1,4,2,3], target: 1)
-//        print(testArray)
-        
-//        test()
-        
-//        GETransportManager.sharedManager.getTrainTransportModeDetails { (success) -> Void in
-//            if success {
-//                
-//            }
-//        }
-////
-//        GETransportManager.sharedManager.getFlightTransportModeDetails { (success) -> Void in
-//            if success {
-//                
-//            }
-//        }
     }
     
     func twoSum(nums:[Int], target:Int) -> [Int] {
@@ -67,45 +47,6 @@ class GETabbarViewController: UITabBarController {
         }
         return targetArray
     }
-    
-    
-    func test () {
-//        var levelCount: Int = 0
-//        let n = 3
-//        var k:Int
-//        for k = n; k>0; (k = k - 1) {
-//            var l:Int = (k - 1)
-//            for l = (k - 1); l>0; l-- {
-//                print(" ",terminator:"")
-//            }
-////            print("*")
-//            levelCount = levelCount + 1
-//            
-//            var z:Int = l
-//            for z = 0; z < levelCount; z++ {
-//                print("*",terminator:"")
-//            }
-//            print("\n")
-//        }
-        
-        let n = 3
-        var k:Int
-        for k = n; k>0; (k = k - 1) {
-//            print(k)
-            var l:Int
-            for l = 0; l<(k - 1);l++ {
-                print(" ",terminator:"")
-            }
-            
-            var z:Int
-            
-            for z = 2; z <= (2 * (n - l)); z++ {
-                print("*",terminator:"")
-            }
-            print("\n")
-        }
-    }
-
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
