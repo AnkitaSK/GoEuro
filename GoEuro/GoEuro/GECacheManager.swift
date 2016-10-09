@@ -45,7 +45,6 @@ class GECacheManager: NSObject {
                 let archivedData:NSData = NSKeyedArchiver.archivedDataWithRootObject(cacheModel)
                 do {
                     if !NSFileManager.defaultManager().fileExistsAtPath(weakSelf.getURL(key)) {
-                        print(weakSelf.getURL(key))
                         if NSFileManager.defaultManager().createFileAtPath(weakSelf.getURL(key), contents: nil, attributes: [NSFileType:NSFileTypeRegular]) {
                             
                             try archivedData.writeToFile(weakSelf.getURL(key
@@ -57,7 +56,6 @@ class GECacheManager: NSObject {
                         }
                     }
                     else {
-                        print(weakSelf.getURL(key))
                         try archivedData.writeToFile(weakSelf.getURL(key), options: NSDataWritingOptions.AtomicWrite)
                     }
                 }catch let (fileWriteError){
@@ -73,7 +71,6 @@ class GECacheManager: NSObject {
     func object(forKey key:String) -> AnyObject? {
         if NSFileManager.defaultManager().fileExistsAtPath(getURL(key)) {
             do {
-                print(getURL(key))
                 let cachedData = try NSData(contentsOfFile: getURL(key), options: NSDataReadingOptions.DataReadingMappedIfSafe)
                 
                 if let cachedObject = NSKeyedUnarchiver.unarchiveObjectWithData(cachedData) as? GECacheModel {

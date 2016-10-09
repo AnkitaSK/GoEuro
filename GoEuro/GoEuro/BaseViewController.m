@@ -13,6 +13,8 @@
 @interface BaseViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *listTableView;
 @property (nonatomic,strong) NSMutableArray *transportDetailModelArray;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+
 @end
 
 @implementation BaseViewController
@@ -63,15 +65,27 @@
         [self reloadListDataBySortingWithKey:@"departureTime"];
     }
     else {
+        [self activityIndicatorStartAnimation];
         [[GETransportManager sharedManager] getBusTransportModeDetails:^(BOOL success) {
             if (success) {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [self.transportDetailModelArray addObjectsFromArray:[GETransportManager sharedManager].busTransportDetails];
                     [self reloadListDataBySortingWithKey:@"departureTime"];
+                    [self activityIndicatorStopAnimation];
                 });
             }
         }];
     }
+}
+
+- (void)activityIndicatorStartAnimation {
+    self.activityIndicator.hidden = FALSE;
+    [self.activityIndicator startAnimating];
+}
+
+- (void)activityIndicatorStopAnimation {
+    self.activityIndicator.hidden = TRUE;
+    [self.activityIndicator stopAnimating];
 }
 
 - (void)trainTransportDetails {
@@ -81,11 +95,13 @@
         [self reloadListDataBySortingWithKey:@"departureTime"];
     }
     else {
+        [self activityIndicatorStartAnimation];
         [[GETransportManager sharedManager] getTrainTransportModeDetails:^(BOOL success) {
             if (success) {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [self.transportDetailModelArray addObjectsFromArray:[GETransportManager sharedManager].trainTransportDetails];
                     [self reloadListDataBySortingWithKey:@"departureTime"];
+                    [self activityIndicatorStopAnimation];
                 });
             }
         }];
@@ -99,11 +115,14 @@
         [self reloadListDataBySortingWithKey:@"departureTime"];
     }
     else {
+        [self activityIndicatorStartAnimation];
         [[GETransportManager sharedManager] getFlightTransportModeDetails:^(BOOL success) {
             if (success) {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [self.transportDetailModelArray addObjectsFromArray:[GETransportManager sharedManager].flightTransportDetails];
                     [self reloadListDataBySortingWithKey:@"departureTime"];
+                    
+                    [self activityIndicatorStopAnimation];
                 });
             }
         }];
@@ -155,4 +174,5 @@
     return customCell;
     
 }
+
 @end
