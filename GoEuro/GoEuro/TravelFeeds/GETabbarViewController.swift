@@ -15,6 +15,9 @@ import UIKit
 }
 
 class GETabbarViewController: UITabBarController {
+    
+    var sortView:GESortView?
+    var overlayView:UIView?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -121,11 +124,25 @@ class GETabbarViewController: UITabBarController {
         view.addSubview(bottomBar)
     }
     
+    func gestureRecogniser() {
+        sortView?.removeFromSuperview()
+        overlayView?.removeFromSuperview()
+    }
+    
     func addingSortView () {
-        var sortView:GESortView = GESortView()
+        overlayView = UIView()
+        overlayView!.frame = CGRectMake(0, 0, view.frame.size.width, view.frame.size.height)
+        overlayView!.backgroundColor = UIColor(red:105/255, green: 105/255, blue: 105/255, alpha: 0.8)
+        view.addSubview(overlayView!)
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action:Selector("gestureRecogniser"))
+        overlayView!.addGestureRecognizer(tapGesture)
+        
+        
+//         = GESortView()
         sortView = GESortView.instanceFromNib()
-        sortView.frame = CGRectMake(view.bounds.size.width/2 - sortView.frame.size.width/2, view.bounds.size.height/2 - sortView.frame.size.height/2, sortView.frame.size.width, sortView.frame.size.height)
-        sortView.sortByButtonClickCompletion = { SortByType in
+        sortView!.frame = CGRectMake(view.bounds.size.width/2 - sortView!.frame.size.width/2, view.bounds.size.height/2 - sortView!.frame.size.height/2, sortView!.frame.size.width, sortView!.frame.size.height)
+        sortView!.sortByButtonClickCompletion = { SortByType in
             switch SortByType {
             case .Duration:
                 let parameters = ["sortByKey":"duration"]
@@ -137,7 +154,7 @@ class GETabbarViewController: UITabBarController {
                 break
             }
         }
-        view.addSubview(sortView)
+        view.addSubview(sortView!)
     }
     
     func addingTopBar () {
