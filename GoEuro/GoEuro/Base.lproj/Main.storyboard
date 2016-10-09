@@ -14,7 +14,7 @@
                         <viewControllerLayoutGuide type="bottom" id="wWZ-NE-X8h"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="aNj-fT-4fB">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="144" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YVi-31-jTt">
@@ -22,7 +22,7 @@
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TransportModeCell" rowHeight="114" id="RG7-ja-O4Z" customClass="GETransportModeCell" customModule="GoEuro" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="92" width="375" height="114"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="114"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RG7-ja-O4Z" id="ozb-e0-dPu">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="113.5"/>
@@ -106,8 +106,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="YVi-31-jTt" firstAttribute="leading" secondItem="aNj-fT-4fB" secondAttribute="leading" id="2Be-Wp-oEf"/>
-                            <constraint firstItem="YVi-31-jTt" firstAttribute="top" secondItem="f4H-AD-aci" secondAttribute="bottom" id="8Mj-Q3-rYP"/>
-                            <constraint firstItem="wWZ-NE-X8h" firstAttribute="top" secondItem="YVi-31-jTt" secondAttribute="bottom" id="IfT-As-NyV"/>
+                            <constraint firstItem="YVi-31-jTt" firstAttribute="top" secondItem="f4H-AD-aci" secondAttribute="bottom" constant="64" id="8Mj-Q3-rYP"/>
+                            <constraint firstItem="wWZ-NE-X8h" firstAttribute="top" secondItem="YVi-31-jTt" secondAttribute="bottom" constant="-64" id="IfT-As-NyV"/>
                             <constraint firstAttribute="trailing" secondItem="YVi-31-jTt" secondAttribute="trailing" id="vQR-PS-Wc2"/>
                         </constraints>
                     </view>
@@ -145,9 +145,10 @@
                     <tabBarItem key="tabBarItem" title="Item" id="Qec-tB-TnM"/>
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="eJB-A5-o3S">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="eJB-A5-o3S">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.058823529409999999" green="0.3803921569" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
