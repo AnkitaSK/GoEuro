@@ -22,19 +22,24 @@ class GETabbarView: UIView {
         return UINib(nibName: "GETabbarView", bundle: nil).instantiateWithOwner(nil, options: nil)[0] as! GETabbarView
     }
     
+    @IBOutlet weak var lineView: UIView!
+    @IBOutlet weak var busButton: UIButton!
+    @IBOutlet weak var trainButton: UIButton!
+    @IBOutlet weak var flightButton: UIButton!
     
     @IBAction func trainButtonClicked(sender: UIButton) {
         buttonClickCompletion!(tap: .TrainButtonTap)
-        
-        
+        lineView.frame = CGRectMake(trainButton.frame.origin.x, lineView.frame.origin.y, lineView.frame.size.width, lineView.frame.size.height)
     }
     
     @IBAction func busButtonClicked(sender: UIButton) {
         buttonClickCompletion!(tap: .BusButtonTap)
+        lineView.frame = CGRectMake(busButton.frame.origin.x, lineView.frame.origin.y, lineView.frame.size.width, lineView.frame.size.height)
     }
     
     @IBAction func flightButtonClicked(sender: UIButton) {
         buttonClickCompletion!(tap: .FlightButtonTap)
+        lineView.frame = CGRectMake(flightButton.frame.origin.x, lineView.frame.origin.y, lineView.frame.size.width, lineView.frame.size.height)
     }
 
     /*

@@ -150,8 +150,6 @@ class GETabbarViewController: UITabBarController {
         let tapGesture = UITapGestureRecognizer(target: self, action:Selector("gestureRecogniser"))
         overlayView!.addGestureRecognizer(tapGesture)
         
-        
-//         = GESortView()
         sortView = GESortView.instanceFromNib()
         sortView!.frame = CGRectMake(view.bounds.size.width/2 - sortView!.frame.size.width/2, view.bounds.size.height/2 + sortView!.frame.size.height/2 - 40, sortView!.frame.size.width, sortView!.frame.size.height)
         sortView!.sortByButtonClickCompletion = { SortByType in
@@ -167,6 +165,10 @@ class GETabbarViewController: UITabBarController {
             }
         }
         view.addSubview(sortView!)
+        sortView!.alpha = 0.0
+        UIView.animateWithDuration(0.5, animations: {
+           self.sortView!.alpha = 1.0
+        })
     }
     
     func addingTopBar () {
