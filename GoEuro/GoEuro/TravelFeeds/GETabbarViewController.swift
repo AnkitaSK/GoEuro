@@ -8,6 +8,12 @@
 
 import UIKit
 
+@objc enum TransportType:Int {
+    case Bus = 0
+    case Train = 1
+    case Flight = 2
+}
+
 class GETabbarViewController: UITabBarController {
 
     override func viewDidLoad() {
@@ -16,33 +22,87 @@ class GETabbarViewController: UITabBarController {
         addingTopBar ()
         addingBottomBar ()
         
-        if let transportDetailModelArray =  GECacheManager.sharedManager.object(forKey: "BusData") as? [GETransportDetailModel] {
-            GETransportManager.sharedManager.busTransportDetails = transportDetailModelArray
-            let parameters = ["transportDetails": transportDetailModelArray]
-            NSNotificationCenter.defaultCenter().postNotificationName("ReloadListView", object:parameters)
-        }
-        else {
-            GETransportManager.sharedManager.getBusTransportModeDetails { (success) -> Void in
-                if success {
-                    
+        
+        
+//        3275
+//        let testArray = twoSum([1,4,2,3], target: 1)
+//        print(testArray)
+        
+//        test()
+        
+//        GETransportManager.sharedManager.getTrainTransportModeDetails { (success) -> Void in
+//            if success {
+//                
+//            }
+//        }
+////
+//        GETransportManager.sharedManager.getFlightTransportModeDetails { (success) -> Void in
+//            if success {
+//                
+//            }
+//        }
+    }
+    
+    func twoSum(nums:[Int], target:Int) -> [Int] {
+        var targetArray:[Int] = [Int]()
+        var i:Int
+        for i = 0;i<nums.count;i++ {
+            var j:Int = 0
+            for j = 0;j<=i;j++ {
+                if i+1 < nums.count {
+                    let temp = nums[i+1] + nums[j]
+                    print(temp)
+                    if temp == target {
+                        targetArray.append(j)
+                        targetArray.append(i+1)
+                        
+                        return targetArray
+                    }
                 }
-            }
-        }
-        
-        
-        
-        GETransportManager.sharedManager.getTrainTransportModeDetails { (success) -> Void in
-            if success {
                 
             }
         }
+        return targetArray
+    }
+    
+    
+    func test () {
+//        var levelCount: Int = 0
+//        let n = 3
+//        var k:Int
+//        for k = n; k>0; (k = k - 1) {
+//            var l:Int = (k - 1)
+//            for l = (k - 1); l>0; l-- {
+//                print(" ",terminator:"")
+//            }
+////            print("*")
+//            levelCount = levelCount + 1
+//            
+//            var z:Int = l
+//            for z = 0; z < levelCount; z++ {
+//                print("*",terminator:"")
+//            }
+//            print("\n")
+//        }
         
-        GETransportManager.sharedManager.getFlightTransportModeDetails { (success) -> Void in
-            if success {
-                
+        let n = 3
+        var k:Int
+        for k = n; k>0; (k = k - 1) {
+//            print(k)
+            var l:Int
+            for l = 0; l<(k - 1);l++ {
+                print(" ",terminator:"")
             }
+            
+            var z:Int
+            
+            for z = 2; z <= (2 * (n - l)); z++ {
+                print("*",terminator:"")
+            }
+            print("\n")
         }
     }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -66,17 +126,20 @@ class GETabbarViewController: UITabBarController {
             if let weakSelf = self {
                 switch ButtonTap {
                 case .BusButtonTap:
-                    let parameters = ["transportDetails": GETransportManager.sharedManager.busTransportDetails]
+                    let parameters = ["transportDetails": GETransportManager.sharedManager.busTransportDetails,
+                                        "transportType": NSNumber(integer: TransportType.Bus.rawValue)]
                     NSNotificationCenter.defaultCenter().postNotificationName("ReloadListView", object:parameters)
                     break
                     
                 case .TrainButtonTap:
-                    let parameters = ["transportDetails": GETransportManager.sharedManager.trainTransportDetails]
+                    let parameters = ["transportDetails": GETransportManager.sharedManager.trainTransportDetails,
+                        "transportType":NSNumber(integer: TransportType.Train.rawValue)]
                     NSNotificationCenter.defaultCenter().postNotificationName("ReloadListView", object:parameters)
                     break
                     
                 case .FlightButtonTap:
-                    let parameters = ["transportDetails": GETransportManager.sharedManager.flightTransportDetails]
+                    let parameters = ["transportDetails": GETransportManager.sharedManager.flightTransportDetails,
+                        "transportType":NSNumber(integer: TransportType.Flight.rawValue)]
                     NSNotificationCenter.defaultCenter().postNotificationName("ReloadListView", object:parameters)
                     break
                 }

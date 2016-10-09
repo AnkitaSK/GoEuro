@@ -20,15 +20,34 @@
 -(void) viewDidLoad {
     [super viewDidLoad];
 
+    self.transportDetailModelArray = [[NSMutableArray alloc] init];
+    [self trainTransportDetails];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadTableViewWithData:) name:@"ReloadListView" object:nil];
 }
 
 - (void)reloadTableViewWithData:(NSNotification *)notification {
     NSDictionary *object = notification.object;
+    [self.transportDetailModelArray removeAllObjects];
+//    [self.transportDetailModelArray addObjectsFromArray:[object objectForKey:@"transportDetails"]];
+//    [self.listTableView reloadData];
     
-    self.transportDetailModelArray = [[NSMutableArray alloc] init];
-    [self.transportDetailModelArray addObjectsFromArray:[object objectForKey:@"transportDetails"]];
-    [self.listTableView reloadData];
+    NSNumber *typeAsNumber = [object objectForKey:@"transportType"];
+    
+    switch (typeAsNumber.intValue) {
+        case 0:
+            [self busTransportDetails];
+            break;
+        case 1:
+            [self trainTransportDetails];
+            break;
+        case 2:
+            [self flightTransportDetails];
+            break;
+            
+        default:
+            break;
+    }
 }
 
 - (NSInteger)timeDifference:(NSInteger)arrivalTime departureTime:(NSInteger)departureTime {
@@ -40,6 +59,74 @@
     
     return hoursBetweenDates;
 }
+
+- (void)busTransportDetails {
+    NSArray *transportDetailsArray = [[GECacheManager sharedManager]objectForKey:@"BusData"];
+    if (transportDetailsArray.count > 0) {
+        [self.transportDetailModelArray addObjectsFromArray:transportDetailsArray];
+        [self.listTableView reloadData];
+    }
+    else {
+        [[GETransportManager sharedManager] getBusTransportModeDetails:^(BOOL success) {
+            if (success) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self.transportDetailModelArray addObjectsFromArray:[GETransportManager sharedManager].busTransportDetails];
+                    [self.listTableView reloadData];
+                });
+            }
+        }];
+    }
+}
+
+- (void)trainTransportDetails {
+    NSArray *transportDetailsArray = [[GECacheManager sharedManager]objectForKey:@"TrainData"];
+    if (transportDetailsArray.count > 0) {
+        [self.transportDetailModelArray addObjectsFromArray:transportDetailsArray];
+        [self.listTableView reloadData];
+    }
+    else {
+        [[GETransportManager sharedManager] getTrainTransportModeDetails:^(BOOL success) {
+            if (success) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self.transportDetailModelArray addObjectsFromArray:[GETransportManager sharedManager].trainTransportDetails];
+                    [self.listTableView reloadData];
+                });
+            }
+        }];
+    }
+}
+
+- (void)flightTransportDetails {
+    NSArray *transportDetailsArray = [[GECacheManager sharedManager]objectForKey:@"FlightData"];
+    if (transportDetailsArray.count > 0) {
+        [self.transportDetailModelArray addObjectsFromArray:transportDetailsArray];
+        [self.listTableView reloadData];
+    }
+    else {
+        [[GETransportManager sharedManager] getFlightTransportModeDetails:^(BOOL success) {
+            if (success) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self.transportDetailModelArray addObjectsFromArray:[GETransportManager sharedManager].flightTransportDetails];
+                    [self.listTableView reloadData];
+                });
+            }
+        }];
+    }
+}
+
+/*
+ if let transportDetailModelArray =  GECacheManager.sharedManager.object(forKey: "BusData") as? [GETransportDetailModel] {
+ GETransportManager.sharedManager.busTransportDetails = transportDetailModelArray
+ let parameters = ["transportDetails": transportDetailModelArray]
+ NSNotificationCenter.defaultCenter().postNotificationName("ReloadListView", object:parameters)
+ }
+ else {
+ GETransportManager.sharedManager.getBusTransportModeDetails { (success) -> Void in
+ if success {
+ 
+ }
+ }
+ }*/
 
 #pragma mark - UITableViewDataSource Methods
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

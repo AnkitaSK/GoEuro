@@ -38,35 +38,50 @@ class GECacheManager: NSObject {
     }
 
     func save(object:AnyObject, key:String) {
-        let cacheModel = GECacheModel(key: key, data: object)
-        let archivedData:NSData = NSKeyedArchiver.archivedDataWithRootObject(cacheModel)
-       do {
-        if !NSFileManager.defaultManager().fileExistsAtPath(self.getURL(key)) {
-            if NSFileManager.defaultManager().createFileAtPath(self.getURL(key), contents: nil, attributes: [NSFileType:NSFileTypeRegular]) {
-                
-                    try archivedData.writeToFile(self.getURL(key
-                        ), options: NSDataWritingOptions.AtomicWrite)
-                
-            }
-        }
-        else {
-            try archivedData.writeToFile(self.getURL(key), options: NSDataWritingOptions.AtomicWrite)
-        }
-       }catch {
         
+        dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0)) { [weak self] in
+            if let weakSelf = self {
+                let cacheModel = GECacheModel(key: key, data: object)
+                let archivedData:NSData = NSKeyedArchiver.archivedDataWithRootObject(cacheModel)
+                do {
+                    if !NSFileManager.defaultManager().fileExistsAtPath(weakSelf.getURL(key)) {
+                        print(weakSelf.getURL(key))
+                        if NSFileManager.defaultManager().createFileAtPath(weakSelf.getURL(key), contents: nil, attributes: [NSFileType:NSFileTypeRegular]) {
+                            
+                            try archivedData.writeToFile(weakSelf.getURL(key
+                                ), options: NSDataWritingOptions.AtomicWrite)
+                            
+                        }
+                        else {
+                            print("Failed to create the cache file")
+                        }
+                    }
+                    else {
+                        print(weakSelf.getURL(key))
+                        try archivedData.writeToFile(weakSelf.getURL(key), options: NSDataWritingOptions.AtomicWrite)
+                    }
+                }catch let (fileWriteError){
+                    print("File write error: \(fileWriteError)")
+                }
+            }
+            
         }
+        
+        
     }
     
     func object(forKey key:String) -> AnyObject? {
         if NSFileManager.defaultManager().fileExistsAtPath(getURL(key)) {
             do {
+                print(getURL(key))
                 let cachedData = try NSData(contentsOfFile: getURL(key), options: NSDataReadingOptions.DataReadingMappedIfSafe)
+                
                 if let cachedObject = NSKeyedUnarchiver.unarchiveObjectWithData(cachedData) as? GECacheModel {
-                    return cachedObject
+                    return cachedObject.cachedData
                 }
                 return nil
-            }catch {
-                
+            }catch let fileWriteError {
+                print("FEtching objects faliled:\(fileWriteError)")
             }
         }
         return nil
@@ -75,7 +90,7 @@ class GECacheManager: NSObject {
 }
 
 private class GECacheModel:NSObject {
-    var key:String = ""
+    var key:String?
     var cachedData:AnyObject?
     
     override init() {
