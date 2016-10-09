@@ -128,6 +128,8 @@ class GETabbarViewController: UITabBarController {
         sortView.sortByButtonClickCompletion = { SortByType in
             switch SortByType {
             case .Duration:
+                let parameters = ["sortByKey":"duration"]
+                NSNotificationCenter.defaultCenter().postNotificationName("ReloadBySorting", object:parameters)
                 break
             case .ArrivalTime:
                 let parameters = ["sortByKey":"arrivalTime"]

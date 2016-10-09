@@ -56,16 +56,6 @@
     [self reloadListDataBySortingWithKey:keyValue];
 }
 
-- (NSInteger)timeDifference:(NSInteger)arrivalTime departureTime:(NSInteger)departureTime {
-    NSDate* date1 = [NSDate dateWithTimeIntervalSince1970:arrivalTime];
-    NSDate* date2 = [NSDate dateWithTimeIntervalSince1970:departureTime];
-    NSTimeInterval distanceBetweenDates = [date1 timeIntervalSinceDate:date2];
-    double secondsInAnHour = 3600;
-    NSInteger hoursBetweenDates = distanceBetweenDates / secondsInAnHour;
-    
-    return hoursBetweenDates;
-}
-
 - (void)busTransportDetails {
     NSArray *transportDetailsArray = [[GECacheManager sharedManager]objectForKey:@"BusData"];
     if (transportDetailsArray.count > 0) {
@@ -127,7 +117,7 @@
     }];
     
     NSArray *sortedData = [self.transportDetailModelArray sortedArrayUsingDescriptors:@[sortDescriptor]];
-    
+    [self.transportDetailModelArray removeAllObjects];
     [self.transportDetailModelArray addObjectsFromArray:sortedData];
     [self.listTableView reloadData];
 }
