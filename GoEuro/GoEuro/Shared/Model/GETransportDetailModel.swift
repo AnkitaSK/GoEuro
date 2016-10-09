@@ -66,7 +66,6 @@ class GETransportDetailModel: NSObject {
         let calendar = NSCalendar.currentCalendar()
         let components = calendar.components([.Hour,.Minute,.Second], fromDate: departureDateTime, toDate: arrivalDateTime, options: [])
         
-        print(components.hour,components.minute,components.second)
         duration = String(components.minute) + ":" + String(components.second)
     }
 }

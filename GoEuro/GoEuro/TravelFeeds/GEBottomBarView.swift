@@ -8,13 +8,14 @@
 
 import UIKit
 
-enum BottomBarButtonTap {
+enum BottomBarButtons {
     case SortButton
+    case OfferButton
 }
 
 class GEBottomBarView: UIView {
     
-    var sortButtonClickCompletion:((tap:BottomBarButtonTap)->Void)?
+    var sortButtonClickCompletion:((tap:BottomBarButtons)->Void)?
 
     class func instanceFromNib() -> GEBottomBarView {
         return UINib(nibName: "GEBottomBarView", bundle: nil).instantiateWithOwner(nil, options: nil)[0] as! GEBottomBarView
@@ -25,6 +26,9 @@ class GEBottomBarView: UIView {
     }
     
     
+    @IBAction func offerButtonClicked(sender: UIButton) {
+        sortButtonClickCompletion!(tap: .OfferButton)
+    }
     /*
     // Only override drawRect: if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.

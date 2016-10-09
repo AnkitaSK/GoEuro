@@ -72,6 +72,12 @@
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="busButton" destination="8oM-Yj-r8c" id="1xR-b5-EYB"/>
+                <outlet property="flightButton" destination="CgW-jO-sy4" id="yhd-f3-xSt"/>
+                <outlet property="lineView" destination="AR5-ZK-7R6" id="lZH-WO-RIP"/>
+                <outlet property="trainButton" destination="ZaA-3t-aOY" id="OP5-vZ-tcu"/>
+            </connections>
             <point key="canvasLocation" x="234" y="119.5"/>
         </view>
     </objects>

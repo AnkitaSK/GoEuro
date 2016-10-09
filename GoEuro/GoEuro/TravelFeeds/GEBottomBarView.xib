@@ -13,9 +13,6 @@
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H5x-fL-MX6">
                     <rect key="frame" x="8" y="8" width="41" height="48"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="48" id="eYd-yr-Nj5"/>
-                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <inset key="titleEdgeInsets" minX="-17" minY="0.0" maxX="0.0" maxY="-22"/>
                     <inset key="imageEdgeInsets" minX="7" minY="-18" maxX="0.0" maxY="0.0"/>
@@ -26,12 +23,25 @@
                         <action selector="sortButtonClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="h2b-xu-EwP"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MYh-Lg-z3Q">
+                    <rect key="frame" x="271" y="17" width="36" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" title="Offer">
+                        <color key="titleColor" red="0.61960784310000006" green="0.74901960779999999" blue="0.83137254900000002" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="offerButtonClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="WA3-aB-oaf"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.058823529411764705" green="0.38039215686274508" blue="0.63921568627450975" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="H5x-fL-MX6" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="Nxb-rX-eHd"/>
-                <constraint firstAttribute="bottom" secondItem="H5x-fL-MX6" secondAttribute="bottom" constant="8" id="Q4c-Qu-oeW"/>
-                <constraint firstItem="H5x-fL-MX6" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="hEd-P7-dnN"/>
+                <constraint firstItem="H5x-fL-MX6" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="8u4-II-98G"/>
+                <constraint firstAttribute="bottom" secondItem="MYh-Lg-z3Q" secondAttribute="bottom" constant="17" id="Gz6-B0-NAF"/>
+                <constraint firstAttribute="bottom" secondItem="H5x-fL-MX6" secondAttribute="bottom" constant="8" id="Ph1-2H-I1i"/>
+                <constraint firstAttribute="trailing" secondItem="MYh-Lg-z3Q" secondAttribute="trailing" constant="13" id="glv-UI-V5d"/>
+                <constraint firstItem="MYh-Lg-z3Q" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="17" id="wFO-zh-nT6"/>
+                <constraint firstItem="H5x-fL-MX6" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="xJl-Z8-PV4"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
