@@ -14,6 +14,8 @@
 		F6091BF21DA4E3F1003CE759 /* GoEuro.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F6091BF01DA4E3F1003CE759 /* GoEuro.xcdatamodeld */; };
 		F6091BF41DA4E3F1003CE759 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6091BF31DA4E3F1003CE759 /* Assets.xcassets */; };
 		F6091BF71DA4E3F1003CE759 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6091BF51DA4E3F1003CE759 /* LaunchScreen.storyboard */; };
+		F6139F071DAA515C008E2550 /* GESortView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6139F061DAA515C008E2550 /* GESortView.swift */; };
+		F6139F091DAA5173008E2550 /* GESortView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6139F081DAA5173008E2550 /* GESortView.xib */; };
 		F61EE2981DA8508100D23D9C /* GECacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61EE2971DA8508100D23D9C /* GECacheManager.swift */; };
 		F6F443241DA4FDE100E4183C /* GETabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F443231DA4FDE100E4183C /* GETabbarViewController.swift */; };
 		F6F443261DA4FE2D00E4183C /* GETabbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F443251DA4FE2D00E4183C /* GETabbarView.swift */; };
@@ -41,6 +43,8 @@
 		F6091BF61DA4E3F1003CE759 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F6091BF81DA4E3F1003CE759 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F6091BFE1DA4F4D7003CE759 /* GoEuro-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GoEuro-Bridging-Header.h"; sourceTree = "<group>"; };
+		F6139F061DAA515C008E2550 /* GESortView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GESortView.swift; path = TravelFeeds/GESortView.swift; sourceTree = "<group>"; };
+		F6139F081DAA5173008E2550 /* GESortView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GESortView.xib; path = TravelFeeds/GESortView.xib; sourceTree = "<group>"; };
 		F61EE2971DA8508100D23D9C /* GECacheManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GECacheManager.swift; sourceTree = "<group>"; };
 		F6F443231DA4FDE100E4183C /* GETabbarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GETabbarViewController.swift; path = TravelFeeds/GETabbarViewController.swift; sourceTree = "<group>"; };
 		F6F443251DA4FE2D00E4183C /* GETabbarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GETabbarView.swift; path = TravelFeeds/GETabbarView.swift; sourceTree = "<group>"; };
@@ -151,6 +155,8 @@
 				F6F4432B1DA50A0400E4183C /* GEBottomBarView.swift */,
 				F6F443291DA509E800E4183C /* GEBottomBarView.xib */,
 				F6F4433A1DA5930200E4183C /* GETransportModeCell.swift */,
+				F6139F081DAA5173008E2550 /* GESortView.xib */,
+				F6139F061DAA515C008E2550 /* GESortView.swift */,
 			);
 			name = TravelFeeds;
 			sourceTree = "<group>";
@@ -242,6 +248,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6139F091DAA5173008E2550 /* GESortView.xib in Resources */,
 				F6091BF71DA4E3F1003CE759 /* LaunchScreen.storyboard in Resources */,
 				F6F443281DA4FE4200E4183C /* GETabbarView.xib in Resources */,
 				F6F4432A1DA509E800E4183C /* GEBottomBarView.xib in Resources */,
@@ -306,6 +313,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F6F4433B1DA5930200E4183C /* GETransportModeCell.swift in Sources */,
+				F6139F071DAA515C008E2550 /* GESortView.swift in Sources */,
 				F6F4433E1DA597DC00E4183C /* BaseViewController.m in Sources */,
 				F6091BF21DA4E3F1003CE759 /* GoEuro.xcdatamodeld in Sources */,
 				F6F443261DA4FE2D00E4183C /* GETabbarView.swift in Sources */,

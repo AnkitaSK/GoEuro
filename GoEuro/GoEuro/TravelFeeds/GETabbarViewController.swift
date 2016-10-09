@@ -113,7 +113,19 @@ class GETabbarViewController: UITabBarController {
         var bottomBar:GEBottomBarView = GEBottomBarView ()
         bottomBar = GEBottomBarView.instanceFromNib()
         bottomBar.frame = CGRectMake(0, view.bounds.size.height - 48, view.bounds.size.width, 48)
+        bottomBar.sortButtonClickCompletion = {[weak self] BottomBarButtonTap in
+            if let weakSelf = self {
+                weakSelf.addingSortView()
+            }
+        }
         view.addSubview(bottomBar)
+    }
+    
+    func addingSortView () {
+        var sortView:GESortView = GESortView()
+        sortView = GESortView.instanceFromNib()
+        sortView.frame = CGRectMake(view.bounds.size.width/2 - sortView.frame.size.width/2, view.bounds.size.height/2 - sortView.frame.size.height/2, sortView.frame.size.width, sortView.frame.size.height)
+        view.addSubview(sortView)
     }
     
     func addingTopBar () {
