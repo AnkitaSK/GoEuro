@@ -125,6 +125,16 @@ class GETabbarViewController: UITabBarController {
         var sortView:GESortView = GESortView()
         sortView = GESortView.instanceFromNib()
         sortView.frame = CGRectMake(view.bounds.size.width/2 - sortView.frame.size.width/2, view.bounds.size.height/2 - sortView.frame.size.height/2, sortView.frame.size.width, sortView.frame.size.height)
+        sortView.sortByButtonClickCompletion = { SortByType in
+            switch SortByType {
+            case .Duration:
+                break
+            case .ArrivalTime:
+                let parameters = ["sortByKey":"arrivalTime"]
+                NSNotificationCenter.defaultCenter().postNotificationName("ReloadBySorting", object:parameters)
+                break
+            }
+        }
         view.addSubview(sortView)
     }
     

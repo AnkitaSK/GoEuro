@@ -24,13 +24,12 @@
     [self trainTransportDetails];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadTableViewWithData:) name:@"ReloadListView" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadBySorting:) name:@"ReloadBySorting" object:nil];
 }
 
 - (void)reloadTableViewWithData:(NSNotification *)notification {
     NSDictionary *object = notification.object;
     [self.transportDetailModelArray removeAllObjects];
-//    [self.transportDetailModelArray addObjectsFromArray:[object objectForKey:@"transportDetails"]];
-//    [self.listTableView reloadData];
     
     NSNumber *typeAsNumber = [object objectForKey:@"transportType"];
     
@@ -50,6 +49,13 @@
     }
 }
 
+- (void)reloadBySorting:(NSNotification *)notification {
+    NSDictionary *object = notification.object;
+    NSString *keyValue = [object objectForKey:@"sortByKey"];
+    
+    [self reloadListDataBySortingWithKey:keyValue];
+}
+
 - (NSInteger)timeDifference:(NSInteger)arrivalTime departureTime:(NSInteger)departureTime {
     NSDate* date1 = [NSDate dateWithTimeIntervalSinceNow:arrivalTime];
     NSDate* date2 = [NSDate dateWithTimeIntervalSince1970:departureTime];
@@ -64,14 +70,14 @@
     NSArray *transportDetailsArray = [[GECacheManager sharedManager]objectForKey:@"BusData"];
     if (transportDetailsArray.count > 0) {
         [self.transportDetailModelArray addObjectsFromArray:transportDetailsArray];
-        [self.listTableView reloadData];
+        [self reloadListDataBySortingWithKey:@"departureTime"];
     }
     else {
         [[GETransportManager sharedManager] getBusTransportModeDetails:^(BOOL success) {
             if (success) {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [self.transportDetailModelArray addObjectsFromArray:[GETransportManager sharedManager].busTransportDetails];
-                    [self.listTableView reloadData];
+                    [self reloadListDataBySortingWithKey:@"departureTime"];
                 });
             }
         }];
@@ -82,14 +88,14 @@
     NSArray *transportDetailsArray = [[GECacheManager sharedManager]objectForKey:@"TrainData"];
     if (transportDetailsArray.count > 0) {
         [self.transportDetailModelArray addObjectsFromArray:transportDetailsArray];
-        [self.listTableView reloadData];
+        [self reloadListDataBySortingWithKey:@"departureTime"];
     }
     else {
         [[GETransportManager sharedManager] getTrainTransportModeDetails:^(BOOL success) {
             if (success) {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [self.transportDetailModelArray addObjectsFromArray:[GETransportManager sharedManager].trainTransportDetails];
-                    [self.listTableView reloadData];
+                    [self reloadListDataBySortingWithKey:@"departureTime"];
                 });
             }
         }];
@@ -100,33 +106,32 @@
     NSArray *transportDetailsArray = [[GECacheManager sharedManager]objectForKey:@"FlightData"];
     if (transportDetailsArray.count > 0) {
         [self.transportDetailModelArray addObjectsFromArray:transportDetailsArray];
-        [self.listTableView reloadData];
+        [self reloadListDataBySortingWithKey:@"departureTime"];
     }
     else {
         [[GETransportManager sharedManager] getFlightTransportModeDetails:^(BOOL success) {
             if (success) {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [self.transportDetailModelArray addObjectsFromArray:[GETransportManager sharedManager].flightTransportDetails];
-                    [self.listTableView reloadData];
+                    [self reloadListDataBySortingWithKey:@"departureTime"];
                 });
             }
         }];
     }
 }
 
-/*
- if let transportDetailModelArray =  GECacheManager.sharedManager.object(forKey: "BusData") as? [GETransportDetailModel] {
- GETransportManager.sharedManager.busTransportDetails = transportDetailModelArray
- let parameters = ["transportDetails": transportDetailModelArray]
- NSNotificationCenter.defaultCenter().postNotificationName("ReloadListView", object:parameters)
- }
- else {
- GETransportManager.sharedManager.getBusTransportModeDetails { (success) -> Void in
- if success {
- 
- }
- }
- }*/
+- (void)reloadListDataBySortingWithKey:(NSString *)key {
+    
+    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:key ascending:TRUE comparator:^NSComparisonResult(NSString *obj1, NSString *obj2) {
+        return [obj1 compare:obj2 options:NSNumericSearch];
+    }];
+    
+    NSArray *sortedData = [self.transportDetailModelArray sortedArrayUsingDescriptors:@[sortDescriptor]];
+    
+    [self.transportDetailModelArray addObjectsFromArray:sortedData];
+    [self.listTableView reloadData];
+}
+
 
 #pragma mark - UITableViewDataSource Methods
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -144,8 +149,6 @@
     else {
         customCell.numberOfStopsLabel.text = @"Direct";
     }
-    
-//    customCell.timeIntervalLabel.text = [self timeDifference:transportModel.arrivalTime departureTime:transportModel.departureTime];
     
     NSString *imageUrlString = transportModel.providerLogo;
     

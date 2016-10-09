@@ -33,6 +33,9 @@
                             <exclude reference="6gr-ef-FjM"/>
                         </mask>
                     </variation>
+                    <connections>
+                        <action selector="sortByDurationButtonClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="u9D-wl-mLx"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KcN-ew-02k">
                     <rect key="frame" x="74" y="141" width="102" height="30"/>
@@ -40,6 +43,9 @@
                         <constraint firstAttribute="width" constant="102" id="k24-ZX-xMx"/>
                     </constraints>
                     <state key="normal" title="by Arrival"/>
+                    <connections>
+                        <action selector="sortByArrivalTimeButtonClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="l2U-mr-scA"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
