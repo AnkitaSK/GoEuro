@@ -27,7 +27,9 @@
                         <constraint firstAttribute="height" constant="30" id="6gr-ef-FjM"/>
                         <constraint firstAttribute="width" constant="102" id="cWa-3v-vkW"/>
                     </constraints>
-                    <state key="normal" title="by Duration"/>
+                    <state key="normal" title="by Duration">
+                        <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
                     <variation key="default">
                         <mask key="constraints">
                             <exclude reference="6gr-ef-FjM"/>
@@ -38,11 +40,13 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KcN-ew-02k">
-                    <rect key="frame" x="74" y="141" width="102" height="30"/>
+                    <rect key="frame" x="63" y="141" width="124" height="30"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="102" id="k24-ZX-xMx"/>
+                        <constraint firstAttribute="width" constant="124" id="k24-ZX-xMx"/>
                     </constraints>
-                    <state key="normal" title="by Arrival"/>
+                    <state key="normal" title="by Arrival Time">
+                        <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
                     <connections>
                         <action selector="sortByArrivalTimeButtonClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="l2U-mr-scA"/>
                     </connections>
