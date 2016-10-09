@@ -132,7 +132,7 @@
     GETransportModeCell *customCell = (GETransportModeCell*)[tableView dequeueReusableCellWithIdentifier:@"TransportModeCell" forIndexPath:indexPath];
     GETransportDetailModel *transportModel = [self.transportDetailModelArray objectAtIndex:indexPath.row];
     customCell.timeLabel.text = [NSString stringWithFormat:@"%@ - %@",transportModel.departureTime,transportModel.arrivalTime];
-    customCell.priceLabel.text = [NSString stringWithFormat:@"%ld",(long)transportModel.priceInEuros];
+    customCell.priceLabel.text = [NSString stringWithFormat:@"\u00A3%ld",(long)transportModel.priceInEuros];
     customCell.timeIntervalLabel.text = [NSString stringWithFormat:@"%@h",transportModel.duration];
     if (transportModel.numberOfStops > 0) {
         customCell.numberOfStopsLabel.text = [NSString stringWithFormat:@"%ld Change",(long)transportModel.numberOfStops];

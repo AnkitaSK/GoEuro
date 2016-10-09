@@ -13,9 +13,6 @@
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H5x-fL-MX6">
                     <rect key="frame" x="8" y="8" width="41" height="48"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="48" id="eYd-yr-Nj5"/>
-                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <inset key="titleEdgeInsets" minX="-17" minY="0.0" maxX="0.0" maxY="-22"/>
                     <inset key="imageEdgeInsets" minX="7" minY="-18" maxX="0.0" maxY="0.0"/>
@@ -29,9 +26,9 @@
             </subviews>
             <color key="backgroundColor" red="0.058823529411764705" green="0.38039215686274508" blue="0.63921568627450975" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="H5x-fL-MX6" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="Nxb-rX-eHd"/>
-                <constraint firstAttribute="bottom" secondItem="H5x-fL-MX6" secondAttribute="bottom" constant="8" id="Q4c-Qu-oeW"/>
-                <constraint firstItem="H5x-fL-MX6" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="hEd-P7-dnN"/>
+                <constraint firstItem="H5x-fL-MX6" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="8u4-II-98G"/>
+                <constraint firstAttribute="bottom" secondItem="H5x-fL-MX6" secondAttribute="bottom" constant="8" id="Ph1-2H-I1i"/>
+                <constraint firstItem="H5x-fL-MX6" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="xJl-Z8-PV4"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
