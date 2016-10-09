@@ -25,6 +25,9 @@ class GETransportManager: NSObject {
                             let modeDetailModel = GETransportDetailModel(attributes: object)
                             weakSelf.busTransportDetails.append(modeDetailModel)
                         }
+                        
+                        GECacheManager.sharedManager.save(weakSelf.busTransportDetails, key: "BusData")
+
                     }
                     
                     completiom(success: true)
@@ -43,7 +46,11 @@ class GETransportManager: NSObject {
                             let modeDetailModel = GETransportDetailModel(attributes: object)
                             weakSelf.trainTransportDetails.append(modeDetailModel)
                         }
+                        
+                        GECacheManager.sharedManager.save(weakSelf.trainTransportDetails, key: "TrainData")
                     }
+                    
+                    completiom(success: true)
                 }
             }
         }
@@ -60,7 +67,9 @@ class GETransportManager: NSObject {
                             let modeDetailModel = GETransportDetailModel(attributes: object)
                             weakSelf.flightTransportDetails.append(modeDetailModel)
                         }
+                        GECacheManager.sharedManager.save(weakSelf.flightTransportDetails, key: "FlightData")
                     }
+                    completiom(success: true)
                 }
             }
         }
